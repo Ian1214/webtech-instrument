@@ -39,7 +39,7 @@ file.onchange = function(){
         fileReader.readAsDataURL(file.files[0])
     }
     else{
-        alert("This file is too large!")
+         showCustomAlert(`${item.name} has been added to the cart.`);
     }
 }
 
@@ -140,3 +140,24 @@ form.addEventListener('submit', (e) => {
     // modal.style.display = "none"
     // document.querySelector(".modal-backdrop").remove()
 });
+
+
+// Custom alert function
+function showCustomAlert(message) {
+    const customAlert = document.getElementById('customAlert');
+    const alertMessage = document.getElementById('alertMessage');
+    const closeAlertBtn = document.getElementById('closeAlert');
+
+    alertMessage.textContent = message;  // Set the custom message
+    customAlert.style.display = 'flex';  // Show the custom alert
+
+    // Close the custom alert when the "OK" button is clicked
+    closeAlertBtn.addEventListener('click', function() {
+        customAlert.style.display = 'none'; // Hide the alert after user clicks OK
+    }, { once: true }); // Ensures the event listener is triggered only once
+
+    // Optionally, close the alert after a brief delay
+    setTimeout(function() {
+        customAlert.style.display = 'none'; 
+    }, 2000);  
+}
