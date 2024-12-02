@@ -39,7 +39,7 @@ file.onchange = function(){
         fileReader.readAsDataURL(file.files[0])
     }
     else{
-         showCustomAlert(`${item.name} has been added to the cart.`);
+         showCustomAlert(`${item.name} This file is too large!`);
     }
 }
 
@@ -106,7 +106,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (isFutureDate(sDate.value)) {
-        alert("The selected date cannot be in the future.");
+      showCustomAlert(`${item.name}The selected date cannot be in the future.');
         return;
     }
 
