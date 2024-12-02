@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const adminPassword = 'admin2024';
 
         if (email === adminEmail && password === adminPassword) {
-            alert('Welcome, Admin!');
+            showCustomAlert(`${item.name}Welcome, Admin!`);
+          
             window.location.href = 'admin.html'; // Navigate to admin page
             localStorage.setItem('user', 'admin'); // Store user session
         } else if (email && password) {
@@ -69,8 +70,29 @@ function logout() {
     document.getElementById('logoutLink').style.display = 'none';
     
     // Alert user
-    alert('Your account has been logged out');
+    showCustomAlert(`${item.name}Your account has been logged out`);
+  
     
     // Redirect to index page
     window.location.href = 'index.html';
+}
+
+// Custom alert function
+function showCustomAlert(message) {
+    const customAlert = document.getElementById('customAlert');
+    const alertMessage = document.getElementById('alertMessage');
+    const closeAlertBtn = document.getElementById('closeAlert');
+
+    alertMessage.textContent = message;  // Set the custom message
+    customAlert.style.display = 'flex';  // Show the custom alert
+
+    // Close the custom alert when the "OK" button is clicked
+    closeAlertBtn.addEventListener('click', function() {
+        customAlert.style.display = 'none'; // Hide the alert after user clicks OK
+    }, { once: true }); // Ensures the event listener is triggered only once
+
+    // Optionally, close the alert after a brief delay
+    setTimeout(function() {
+        customAlert.style.display = 'none'; 
+    }, 2000);  
 }
