@@ -53,7 +53,5 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     alert("Order placed successfully!");
-    localStorage.removeItem("cart"); // Clear the cart
-    window.location.href = "done.html"; // Redirect to done page
-  });
+   
 });
