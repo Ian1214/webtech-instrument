@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       alert('Order placed successfully!');
       localStorage.removeItem('cart'); 
-      window.location.href = 'done.html';
+      window.location.href = 'index.html';
         
     });
 
