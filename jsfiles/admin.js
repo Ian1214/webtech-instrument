@@ -106,7 +106,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (isFutureDate(sDate.value)) {
-      showCustomAlert(`${item.name}The selected date cannot be in the future.');
+      showCustomAlert(`${item.name}The selected date cannot be in the future.'`);
         return;
     }
 
